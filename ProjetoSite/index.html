@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saúde e Alimentação</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<style>
+     body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        color: #333;
+        padding-top: 20px;
+    }
+    .jumbotron {
+        background-color: #fff;
+        padding: 2rem 1rem;
+        margin-bottom: 2rem;
+        border-radius: 0.5rem;
+        box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+        color: #007bff;
+   
+    }
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+    .btn {
+        background-color: #007bff;
+        color: #fff;
+        transition: background-color 0.3s ease;
+    }
+    .resultado {
+        font-weight: bold;
+        margin-top: 20px;
+    }
+    .table th {
+        color: #007bff;
+    }
+    .navbar {
+        background-color: #007bff;
+    }
+    .navbar-brand {
+        color: #110202;
+    }
+
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Barra de navegação</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link" href="#Imc">IMC</a>
+              <a class="nav-link" href="#proteinas">Proteinas</a>
+              <a class="nav-link" href="#agua">Água</a>
+              <a class="nav-link" href="#medidas">Medidas</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+<div class="container">
+    <br>
+    <div class="jumbotron">
+        <h1 class="display-4">Calculadora de Saúde e Alimentação</h1>
+</div>
+<div id="imc"></div>
+    <div>
+        <h2>IMC</h2>
+         <P>O Índice de Massa Corporal (IMC) é uma medida utilizada para avaliar se uma pessoa está dentro de um peso considerado saudável para sua altura. O resultado do IMC fornece uma indicação geral sobre a proporção de gordura corporal de uma pessoa e é amplamente utilizado como uma ferramenta de triagem para identificar possíveis problemas de peso, como obesidade ou baixo peso.</P>
+         <P>Faça o calculo abaixo para saber qual é o seu IMC👇</P>
+</div> 
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">Calculadora de IMC</h2>
+                    <div class="form-group">
+                        <label for="peso">Peso (kg):</label>
+                        <input type="number" id="peso" class="form-control" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="altura">Altura (m):</label>
+                        <input type="number" id="altura" class="form-control" step="0.01" required>
+                    </div>
+                    <button onclick="calcularIMC()" class="btn">Calcular IMC</button>
+                    <div id="resultadoIMC" class="resultado"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <img src="img/IMC.png" alt="IMC" class="img-fluid" width="400" style="position: relative; left: 100px;" >>
+        </div>
+    </div>
+    <div>
+        <h3>Como interpretar o resultado de IMC</h3>
+        <p>Depois de obter o resultado de IMC, deve-se interpretar o valor utilizando a seguinte tabela:</p>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <table class="table text-center">
+                <thead>
+                    <tr>
+                        <th scope="col">IMC</th>
+                        <th scope="col">Classificação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Menor que 18,5</td>
+                        <td>Magreza</td>
+                    </tr>
+                    <tr>
+                        <td>18,5 a 24,9</td>
+                        <td>Normal</td>
+                    </tr>
+                    <tr>
+                        <td>25 a 29,9</td>
+                        <td>Sobrepeso</td>
+                    </tr>
+                    <tr>
+                        <td>30 a 34,9</td>
+                        <td>Obesidade grau I</td>
+                    </tr>
+                    <tr>
+                        <td>35 a 39,9</td>
+                        <td>Obesidade grau II</td>
+                    </tr>
+                    <tr>
+                        <td>Maior que 40</td>
+                        <td>Obesidade grau III</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div>
+        <h3>Como é feito o cálculo de IMC</h3>
+        <p>O IMC é calculado dividindo o peso (em kg) pela altura ao quadrado (em m), de acordo com a seguinte fórmula: IMC = peso / (altura x altura). O resultado de IMC é dado em kg/m2.</p>
+    </div>
+    <br>
+    <br>
+<div>
+    <div id="proteinas"></div>
+    <h2>Proteinas</h2>
+        <p>Construção e Reparo de Tecidos: As proteínas são os blocos de construção dos tecidos do corpo, incluindo músculos, ossos, pele, cabelo e órgãos. Consumir proteína adequada ajuda na reparação e manutenção desses tecidos, especialmente após o exercício físico e durante o crescimento.</p>
+         <p> Portanto, garantir uma ingestão adequada de proteínas na dieta é fundamental para manter a saúde e o bem-estar geral. As fontes de proteína incluem carnes magras, aves, peixes, ovos, laticínios, legumes, nozes e sementes.</p>
+    <P>Faça o calculo abaixo para saber quanto de proteina deve ingerir👇</P>
+</div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Calculadora de Proteínas Diárias</h2>
+                    <div class="form-group">
+                        <label for="pesoProteina">Peso (kg):</label>
+                        <input type="number" id="pesoProteina" class="form-control" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nivelAtividade">Nível de Atividade:</label>
+                        <select id="nivelAtividade" class="form-control">
+                            <option value="sedentario">Sedentário (pouca ou nenhuma atividade física)</option>
+                            <option value="leve">Leve (exercício leve 1-3 dias por semana)</option>
+                            <option value="moderado">Moderado (exercício moderado 3-5 dias por semana)</option>
+                            <option value="ativo">Ativo (exercício intenso 6-7 dias por semana)</option>
+                            <option value="muitoAtivo">Muito Ativo (exercício muito intenso, trabalho físico pesado ou treinamento duas vezes por dia)</option>
+                        </select>
+                    </div>
+                    <button onclick="calcularProteinas()" class="btn">Calcular</button>
+                    <div id="resultadoProteina" class="resultado"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <img src="img/proteinas.jpeg" alt="Proteínas" class="img-fluid" width="300" style="position: relative; left: 100px;" >>
+        </div>
+    </div>
+</div>
+
+<script>
+    function calcularIMC() {
+        var peso = parseFloat(document.getElementById("peso").value);
+        var altura = parseFloat(document.getElementById("altura").value);
+        
+        if (isNaN(peso) || isNaN(altura) || peso <= 0 || altura <= 0) {
+            document.getElementById("resultadoIMC").innerHTML = "<div class='alert alert-danger'>Por favor, insira valores válidos para peso e altura.</div>";
+            return;
+        }
+        
+        var imc = peso / (altura * altura);
+        var mensagem = "Seu IMC é: " + imc.toFixed(2) + ". ";
+        
+        if (imc < 18.5) {
+            mensagem += "Você está abaixo do peso ideal.";
+        } else if (imc < 25) {
+            mensagem += "Você está dentro do peso ideal.";
+        } else {
+            mensagem += "Você está acima do peso ideal.";
+        }
+        
+        document.getElementById("resultadoIMC").innerHTML = "<div class='alert alert-info'>" + mensagem + "</div>";
+    }
+    
+    function calcularProteinas() {
+        var peso = parseFloat(document.getElementById("pesoProteina").value);
+        var nivelAtividade = document.getElementById("nivelAtividade").value;
+        
+        if (isNaN(peso) || peso <= 0) {
+            document.getElementById("resultadoProteina").innerHTML = "<div class='alert alert-danger'>Por favor, insira um peso válido.</div>";
+            return;
+        }
+        
+        var fatorAtividade = 1.2; // Fator de atividade padrão para sedentário
+        
+        switch (nivelAtividade) {
+            case "sedentario":
+                fatorAtividade = 1.2;
+                break;
+            case "leve":
+                fatorAtividade = 1.4;
+                break;
+            case "moderado":
+                fatorAtividade = 1.6;
+                break;
+            case "ativo":
+                fatorAtividade = 1.8;
+                break;
+            case "muitoAtivo":
+                fatorAtividade = 2.0;
+                break;
+            default:
+                break;
+        }
+        
+        var proteinaMinima = peso * 0.8; // Gramas de proteína por kg de peso corporal (mínimo)
+        var proteinaMaxima = peso * 2.2; // Gramas de proteína por kg de peso
+        var proteinaRecomendada = (proteinaMinima + proteinaMaxima) / 2 * fatorAtividade; // Média com base no fator de atividade
+    
+        document.getElementById("resultadoProteina").innerHTML = "<div class='alert alert-info'>Ingestão recomendada de proteínas: " + proteinaRecomendada.toFixed(2) + "g/dia</div>";
+    }
+
+  </script>
+
+<br>
+<br>
+<div id="agua">
+<div class="container">
+    <div class="jumbotron">
+        <h2>Calculadora de Ingestão Diária de Água</h2>
+    </div>
+    <div>
+        <p>A água desempenha um papel fundamental em nossa saúde. Calcular a ingestão diária recomendada de água pode ajudar a manter o corpo hidratado e funcionando adequadamente. Use a calculadora abaixo para determinar sua ingestão diária ideal de água:</p>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">Calculadora de Água</h2>
+                    <div class="form-group">
+                        <label for="pesoagua">Peso (kg):</label>
+                        <input type="number" id="pesoagua" class="form-control" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="NivelAtividade">Nível de Atividade:</label>
+                        <select id="NivelAtividade" class="form-control">
+                            <option value="sedentario">Sedentário (pouca ou nenhuma atividade física)</option>
+                            <option value="leve">Leve (exercício leve 1-3 dias por semana)</option>
+                            <option value="moderado">Moderado (exercício moderado 3-5 dias por semana)</option>
+                            <option value="ativo">Ativo (exercício intenso 6-7 dias por semana)</option>
+                            <option value="muitoAtivo">Muito Ativo (exercício muito intenso, trabalho físico pesado ou treinamento duas vezes por dia)</option>
+                        </select>
+                    </div>
+                    <button onclick="calcularIngestaoAgua()" class="btn">Calcular</button>
+                    <div id="resultadoIngestaoAgua" class="resultado"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <img src="img/agua" alt="agua" class="img-fluid" class="img-fluid" width="300" style="position: relative; left: 100px;" >
+        </div>
+    </div>
+</div>
+<div id="medidas">
+<div class="container">
+    <h2>Formulário de Medidas do Corpo</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <form action="/cod.php" method="post">
+                        <div class="form-group">
+                            <label for="altura">Altura (cm):</label>
+                            <input type="double" id="altura" name="altura" required class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="peso">Peso (kg):</label>
+                            <input type="double" id="peso" name="peso" required class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="cintura">Cintura (cm):</label>
+                            <input type="double" id="cintura" name="cintura" required class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="quadril">Quadril (cm):</label>
+                            <input type="double" id="quadril" name="quadril" required class="form-control">
+                        </div>
+                        <input type="submit" value="Enviar" class="btn btn-primary">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+function calcularIngestaoAgua() {
+    var peso = parseFloat(document.getElementById("pesoagua").value);
+    var nivelAtividade = document.getElementById("NivelAtividade").value;
+    
+    if (isNaN(peso) || peso <= 0) {
+        document.getElementById("resultadoIngestaoAgua").innerHTML = "<div class='alert alert-danger'>Por favor, insira um peso válido.</div>";
+        return;
+    }
+    
+    var fatorAtividade = 1.0; // Fator de atividade padrão para sedentário
+    
+    switch (nivelAtividade) {
+        case "sedentario":
+            fatorAtividade = 1.0;
+            break;
+        case "leve":
+            fatorAtividade = 1.5;
+            break;
+        case "moderado":
+            fatorAtividade = 2.0;
+            break;
+        case "ativo":
+            fatorAtividade = 2.5;
+            break;
+        case "muitoAtivo":
+            fatorAtividade = 3.0;
+            break;
+        default:
+            break;
+    }
+    
+    var ingestaoAgua = peso * 30 * fatorAtividade; // Recomendação de ingestão de água em litros por kg de peso
+    
+    document.getElementById("resultadoIngestaoAgua").innerHTML = "<div class='alert alert-info'>Ingestão recomendada de água: " + ingestaoAgua.toFixed(2) + " litros/dia</div>";
+}
+</script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5
+
+</body>
+</html>
